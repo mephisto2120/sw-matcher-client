@@ -6,4 +6,4 @@ before_install:
   - docker build -t mephisto2120/sw-matcher-client -f Dockerfile.dev .
 
 script:
-  - docker run mephisto2120/sw-matcher-client npm run test -- --coverage
+  - docker run mephisto2120/sw-matcher-client npm run test
