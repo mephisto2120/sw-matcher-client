@@ -1,10 +1,27 @@
-FROM node:alpine as builder
-WORKDIR '/app'
+FROM node:10-alpine
+
+# update packages
+RUN apk update
+
+# create root application folder
+WORKDIR /app
+
+# copy configs to /app folder
 COPY package*.json ./
+COPY tsconfig.json ./
+# copy source code to /app/src folder
+COPY src /app/src
+
+# check files list
+RUN ls -a
+
 RUN npm install
-COPY . .
 RUN npm run build
 
-FROM nginx
-EXPOSE 80
-COPY --from=builder /app/build /usr/share/nginx/html
+EXPOSE 7777
+
+CMD [ "node", "./dist/main.js" ]
+
+#FROM nginx
+#EXPOSE 80
+#COPY --from=builder /app/build /usr/share/nginx/html
