@@ -11,6 +11,7 @@ COPY package*.json ./
 COPY tsconfig.json ./
 # copy source code to /app/src folder
 COPY src /app/src
+COPY public /app/public
 
 # check files list
 RUN ls -a
@@ -18,9 +19,9 @@ RUN ls -a
 RUN npm install
 RUN npm run build
 
-EXPOSE 7777
+EXPOSE 3000
 
-CMD [ "node", "./dist/main.js" ]
+#CMD [ "node", "./dist/main.js" ]
 
 #FROM nginx
 #EXPOSE 80
