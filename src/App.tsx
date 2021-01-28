@@ -1,13 +1,17 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import PersonService from "./components/PersonService";
 
 function App() {
+  let personService = new PersonService();
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
+          {/*Person: {personService.getPerson(BigInt(987))}*/}
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <a
