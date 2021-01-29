@@ -1,17 +1,27 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import PersonService from "./components/PersonService";
+import {Person} from './model/interfaces'
+import {SuperApi} from "./model/SuperApi";
+
 
 function App() {
-  let personService = new PersonService();
+  const [person, setPerson] = useState<Person[]>([]);
+
+  useEffect(() => {
+    SuperApi.getApi()
+        .then((person: Person[]) => {
+          setPerson(person);
+        })
+  }, []);
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          {/*Person: {personService.getPerson(BigInt(987))}*/}
+          {person.map(item => item.firstName)
+            /*{person[0].firstName} {person[0].lastName} */}
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <a
