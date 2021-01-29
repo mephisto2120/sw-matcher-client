@@ -1,31 +1,31 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import './App.css';
-import List from './components/List';
+import Persons from './components/Persons';
 import withListLoading from './components/withListLoading';
 
 function App() {
-    const ListLoading = withListLoading(List);
+    const ListLoading = withListLoading(Persons);
     const [appState, setAppState] = useState({
         loading: false,
-        repos: null,
+        persons: null,
     });
 
     useEffect(() => {
         setAppState({loading: true});
-        const apiUrl = `https://api.github.com/users/mephisto2120/repos`;
-        axios.get(apiUrl).then((repos) => {
-            const allRepos = repos.data;
-            setAppState({loading: false, repos: allRepos});
+        const apiUrl = 'http://localhost:8080/person/get?customerId=987';
+        axios.get(apiUrl).then((persons) => {
+            const allPersons = persons.data;
+            setAppState({loading: false, persons: allPersons});
         });
     }, [setAppState]);
     return (
         <div className='App'>
             <div className='container'>
-                <h1>My Repositories</h1>
+                <h1>Found persons</h1>
             </div>
             <div className='repo-container'>
-                <ListLoading isLoading={appState.loading} repos={appState.repos}/>
+                <ListLoading isLoading={appState.loading} repos={appState.persons}/>
             </div>
             <footer>
                 <div className='footer'>
