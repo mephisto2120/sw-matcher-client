@@ -1,4 +1,4 @@
-FROM node:10-alpine
+FROM node:10-alpine as builder
 
 # update packages
 RUN apk update
@@ -21,8 +21,8 @@ RUN npm run build
 
 EXPOSE 3000
 
-#CMD [ "node", "./dist/main.js" ]
+CMD [ "node", "./dist/main.js" ]
 
-#FROM nginx
-#EXPOSE 80
-#COPY --from=builder /app/build /usr/share/nginx/html
+FROM nginx
+EXPOSE 80
+COPY --from=builder /app/build /usr/share/nginx/html
