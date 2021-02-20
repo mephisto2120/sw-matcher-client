@@ -10,8 +10,7 @@ function App() {
     const [person, setPerson] = useState<Person[]>([]);
 
     useEffect(() => {
-        // setAppState({loading: true});
-        PersonService.getApi()
+        PersonService.get()
             .then((person: Person[]) => {
                 setPerson(person);
             })
@@ -22,15 +21,11 @@ function App() {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo"/>
                 <div className='repo-container'>
-                    {/*<ListLoading isLoading="true" repos={person}/>*/}
                     <PersonList persons={person}></PersonList>
                 </div>
 
                 <p>
                     {person.map(item => item.firstName + ' ' + item.lastName)}
-                </p>
-                <p>
-                    {/*{person[0].firstName} {person[0].lastName}*/}
                 </p>
                 <p>
                     Edit <code>src/App.tsx</code> and save to reload.

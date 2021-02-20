@@ -1,7 +1,6 @@
 import React, {Component, FunctionComponent} from 'react';
 import {Person} from "../model/interfaces";
 
-
 type PersonProps = {
     persons: Person[]
 }
