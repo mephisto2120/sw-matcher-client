@@ -1,10 +1,14 @@
-FROM node:alpine
+FROM node:10-alpine
 
-WORKDIR '/app'
+# update packages
+RUN apk update
 
-COPY package.json .
+WORKDIR "/app"
+COPY ./package.json ./
 RUN npm install
 
-COPY . .
+# check files list
+RUN ls -a
 
+COPY . .
 CMD ["npm", "run", "start"]
