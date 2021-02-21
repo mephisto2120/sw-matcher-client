@@ -2,23 +2,23 @@ import { useState } from 'react';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useActions } from '../hooks/useActions';
 
-const RepositoriesList: React.FC = () => {
-  const [term, setTerm] = useState('');
-  const { searchRepositories } = useActions();
+const PersonsList: React.FC = () => {
+  const [lastName, setLastName] = useState('');
+  const { searchPersons } = useActions();
   const { data, error, loading } = useTypedSelector(
-    (state) => state.repositories
+    (state) => state.persons
   );
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    searchRepositories(term);
+    searchPersons(lastName);
   };
 
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <input value={term} onChange={(e) => setTerm(e.target.value)} />
+        <input value={lastName} onChange={(e) => setLastName(e.target.value)} />
         <button>Search</button>
       </form>
       {error && <h3>{error}</h3>}
@@ -28,4 +28,4 @@ const RepositoriesList: React.FC = () => {
   );
 };
 
-export default RepositoriesList;
+export default PersonsList;

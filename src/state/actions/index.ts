@@ -1,20 +1,20 @@
 import { ActionType } from '../action-types';
 
-interface SearchRepositoriesAction {
-  type: ActionType.SEARCH_REPOSITORIES;
+interface SearchPersonsAction {
+  type: ActionType.SEARCH_PERSONS;
 }
 
-interface SearchRepositoriesSuccessAction {
-  type: ActionType.SEARCH_REPOSITORIES_SUCCESS;
+interface SearchPersonsSuccessAction {
+  type: ActionType.SEARCH_PERSONS_SUCCESS;
   payload: string[];
 }
 
-interface SearchRepositoriesErrorAction {
-  type: ActionType.SEARCH_REPOSITORIES_ERROR;
+interface SearchPersonsErrorAction {
+  type: ActionType.SEARCH_PERSONS_ERROR;
   payload: string;
 }
 
 export type Action =
-  | SearchRepositoriesAction
-  | SearchRepositoriesSuccessAction
-  | SearchRepositoriesErrorAction;
+  | SearchPersonsAction
+  | SearchPersonsSuccessAction
+  | SearchPersonsErrorAction;

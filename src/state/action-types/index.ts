@@ -1,5 +1,5 @@
 export enum ActionType {
-  SEARCH_REPOSITORIES = 'search_repositories',
-  SEARCH_REPOSITORIES_SUCCESS = 'search_repositories_success',
-  SEARCH_REPOSITORIES_ERROR = 'search_repositories_error',
+  SEARCH_PERSONS = 'search_persons',
+  SEARCH_PERSONS_SUCCESS = 'search_persons_success',
+  SEARCH_PERSONS_ERROR = 'search_persons_error',
 }

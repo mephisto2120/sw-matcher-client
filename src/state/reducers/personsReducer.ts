@@ -1,7 +1,7 @@
 import { ActionType } from '../action-types';
 import { Action } from '../actions';
 
-interface RepositoriesState {
+interface PersonsState {
   loading: boolean;
   error: string | null;
   data: string[];
@@ -14,15 +14,15 @@ const initialState = {
 };
 
 const reducer = (
-  state: RepositoriesState = initialState,
+  state: PersonsState = initialState,
   action: Action
-): RepositoriesState => {
+): PersonsState => {
   switch (action.type) {
-    case ActionType.SEARCH_REPOSITORIES:
+    case ActionType.SEARCH_PERSONS:
       return { loading: true, error: null, data: [] };
-    case ActionType.SEARCH_REPOSITORIES_SUCCESS:
+    case ActionType.SEARCH_PERSONS_SUCCESS:
       return { loading: false, error: null, data: action.payload };
-    case ActionType.SEARCH_REPOSITORIES_ERROR:
+    case ActionType.SEARCH_PERSONS_ERROR:
       return { loading: false, error: action.payload, data: [] };
     default:
       return state;
