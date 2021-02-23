@@ -1,4 +1,5 @@
-import { ActionType } from '../action-types';
+import {ActionType} from '../action-types';
+import {Person} from "../../model/interfaces";
 
 interface SearchPersonsAction {
   type: ActionType.SEARCH_PERSONS;
@@ -6,7 +7,7 @@ interface SearchPersonsAction {
 
 interface SearchPersonsSuccessAction {
   type: ActionType.SEARCH_PERSONS_SUCCESS;
-  payload: string[];
+  payload: Person[];
 }
 
 interface SearchPersonsErrorAction {

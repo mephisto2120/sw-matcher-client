@@ -1,10 +1,11 @@
-import { ActionType } from '../action-types';
-import { Action } from '../actions';
+import {ActionType} from '../action-types';
+import {Action} from '../actions';
+import {Person} from "../../model/interfaces";
 
 interface PersonsState {
   loading: boolean;
   error: string | null;
-  data: string[];
+  data: Person[];
 }
 
 const initialState = {
@@ -19,11 +20,11 @@ const reducer = (
 ): PersonsState => {
   switch (action.type) {
     case ActionType.SEARCH_PERSONS:
-      return { loading: true, error: null, data: [] };
+      return {loading: true, error: null, data: []};
     case ActionType.SEARCH_PERSONS_SUCCESS:
-      return { loading: false, error: null, data: action.payload };
+      return {loading: false, error: null, data: action.payload};
     case ActionType.SEARCH_PERSONS_ERROR:
-      return { loading: false, error: action.payload, data: [] };
+      return {loading: false, error: action.payload, data: []};
     default:
       return state;
   }

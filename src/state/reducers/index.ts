@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import personsReducer from './personsReducer';
 
 const reducers = combineReducers({
