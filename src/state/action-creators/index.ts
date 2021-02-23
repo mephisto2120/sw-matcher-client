@@ -44,9 +44,10 @@ export const searchPersons = (personSearchCriteria: PersonSearchCriteria) => {
         payload: persons,
       });
     } catch (err) {
+      const errorMessage = err.response.status === 404 ?  'No person found' : err.message;
       dispatch({
         type: ActionType.SEARCH_PERSONS_ERROR,
-        payload: err.message,
+        payload: errorMessage,
       });
     }
   };
