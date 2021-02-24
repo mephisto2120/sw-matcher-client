@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import personsReducer from './personsReducer';
+import personsReducer from "state/reducers/personsReducer";
 
 const reducers = combineReducers({
   persons: personsReducer,

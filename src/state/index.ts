@@ -1,3 +1,3 @@
-export * from './store';
-export * as actionCreators from './action-creators';
-export * from './reducers';
+export * from 'state/store';
+export * as actionCreators from 'state/action-creators';
+export * from 'state/reducers';

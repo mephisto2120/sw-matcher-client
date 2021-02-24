@@ -3,8 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 
 import {Provider} from 'react-redux';
-import PersonView from "./components/PersonView";
-import {store} from "./state";
+import PersonView from "components/PersonView";
+import {store} from "state";
 
 function App() {
 
