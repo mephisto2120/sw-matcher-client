@@ -2,9 +2,7 @@ import axios from 'axios';
 import {Dispatch} from 'redux';
 import {ActionType} from '../action-types';
 import {Action} from '../actions';
-import {PersonService} from "../../service/PersonService";
 import {Person} from "../../model/interfaces";
-import {useEffect, useState} from "react";
 
 interface PersonSearchCriteria {
   customerId: number;
@@ -37,7 +35,6 @@ export const searchPersons = (personSearchCriteria: PersonSearchCriteria) => {
       const persons: Person[] = data.map((person: Person) => {
         return person;
       });
-      console.log('persons: ' + persons)
 
       dispatch({
         type: ActionType.SEARCH_PERSONS_SUCCESS,

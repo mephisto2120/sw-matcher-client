@@ -1,9 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Person} from './model/interfaces'
-import {PersonService} from "./service/PersonService";
-import {PersonList} from "./view/Person";
 
 import {Provider} from 'react-redux';
 import PersonView from "./components/PersonView";
