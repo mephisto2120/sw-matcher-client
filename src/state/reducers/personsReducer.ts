@@ -2,7 +2,7 @@ import {Person} from "model/interfaces";
 import {ActionType} from "state/action-types";
 import {Action} from "state/actions";
 
-interface PersonsState {
+export interface PersonsState {
   loading: boolean;
   error: string | null;
   data: Person[];
