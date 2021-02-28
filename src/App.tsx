@@ -1,10 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-import {Provider} from 'react-redux';
-import PersonView from "components/PersonView";
-import {store} from "state";
+import PersonView from 'components/PersonView';
+import Root from 'Root';
 
 function App() {
 
@@ -18,7 +16,7 @@ function App() {
   // }, []);
 
   return (
-    <Provider store={store}>
+    <Root>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
@@ -46,7 +44,7 @@ function App() {
           </a>
         </header>
       </div>
-    </Provider>
+    </Root>
   );
 }
 
