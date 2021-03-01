@@ -5,6 +5,7 @@ import {Person} from 'model/interfaces';
 import {ActionType} from 'state/action-types';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import {HttpStatus} from 'http/HttpStatus';
 
 
 const middleware = [thunk];
@@ -43,7 +44,7 @@ describe('searchPersons actions', () => {
       lastName: "Debtor"
     };
     moxios.stubRequest('http://localhost:8080/person/get?customerId=987&firstName=John&lastName=Debtor', {
-      status: 200,
+      status: HttpStatus.OK,
       response: [foundPerson]
     });
 
@@ -63,7 +64,7 @@ describe('searchPersons actions', () => {
 
   it('dispatches SEARCH_PERSONS_ERROR after a FAILED API request', () => {
     moxios.stubRequest('http://localhost:8080/person/get?customerId=888&firstName=Boris&lastName=Spasski', {
-      status: 400,
+      status: HttpStatus.BAD_REQUEST,
       response: {error: {message: 'error message'}}
     });
 
@@ -89,7 +90,7 @@ describe('searchPersons actions', () => {
 
   it('dispatches SEARCH_PERSONS_ERROR after response which does not found person', () => {
     moxios.stubRequest('http://localhost:8080/person/get?customerId=999&firstName=Hikaru&lastName=Nakamura', {
-      status: 404,
+      status: HttpStatus.NOT_FOUND,
       response: {error: {message: 'error message'}}
     });
 

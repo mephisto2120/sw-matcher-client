@@ -5,6 +5,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
+import {HttpStatus} from 'http/HttpStatus';
 
 
 const middleware = [thunk];
@@ -39,7 +40,7 @@ describe('searchPersons actions', () => {
       lastName: "Debtor"
     };
     mock.onGet('http://localhost:8080/person/get?customerId=987&firstName=John&lastName=Debtor').reply(
-      200,
+      HttpStatus.OK,
       {response: [foundPerson]}
       );
 
@@ -59,7 +60,7 @@ describe('searchPersons actions', () => {
 
   it('dispatches SEARCH_PERSONS_ERROR after a FAILED API request', () => {
     mock.onGet('http://localhost:8080/person/get?customerId=888&firstName=Boris&lastName=Spasski').reply(
-      400,
+      HttpStatus.BAD_REQUEST,
       {error: {message: 'error message'}}
       );
 
@@ -85,7 +86,7 @@ describe('searchPersons actions', () => {
 
   it('dispatches SEARCH_PERSONS_ERROR after response which does not found person', () => {
     mock.onGet('http://localhost:8080/person/get?customerId=888&firstName=Boris&lastName=Spasski').reply(
-      404,
+      HttpStatus.NOT_FOUND,
       {error: {message: 'error message'}}
       );
 
