@@ -1,5 +1,5 @@
-import {ActionType} from "state/action-types";
-import {Person} from "model/interfaces";
+import {ActionType} from 'state/action-types';
+import {Person} from 'model/interfaces';
 
 interface SearchPersonsAction {
   type: ActionType.SEARCH_PERSONS;

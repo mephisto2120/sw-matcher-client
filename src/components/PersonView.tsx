@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {useTypedSelector} from "hooks/useTypedSelector";
+import {useTypedSelector} from 'hooks/useTypedSelector';
 import { useActions } from 'hooks/useActions';
-import PersonSearchCriteria from "state/action-creators";
-import {PersonList} from "view/Person";
+import PersonSearchCriteria from 'state/action-creators';
+import {PersonList} from 'view/Person';
 
 const PersonView: React.FC = () => {
   const [customerId, setCustomerId] = useState('');

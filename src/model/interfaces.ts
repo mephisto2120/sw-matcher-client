@@ -1,5 +1,4 @@
 export interface Person {
-  name: string;
   personId: number;
   customerId: number;
   firstName: string;
