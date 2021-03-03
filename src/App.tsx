@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import PersonView from 'components/PersonView';
 import Root from 'Root';
+import PersonSearchingView from 'PersonSearchingView';
 
 function App() {
 
@@ -20,10 +20,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
-          <div>
-            <h1>Search for persons</h1>
-            <PersonView/>
-          </div>
+          <PersonSearchingView/>
           {/*<div className='repo-container'>*/}
           {/*    <PersonList persons={persons}></PersonList>*/}
           {/*</div>*/}
