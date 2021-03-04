@@ -1,21 +1,21 @@
-import {ActionType} from 'state/action-types';
+import {SearchPersonsActionType} from 'state/action-types';
 import {Person} from 'model/interfaces';
 
 interface SearchPersonsAction {
-  type: ActionType.SEARCH_PERSONS;
+  type: SearchPersonsActionType.SEARCH_PERSONS;
 }
 
 interface SearchPersonsSuccessAction {
-  type: ActionType.SEARCH_PERSONS_SUCCESS;
+  type: SearchPersonsActionType.SEARCH_PERSONS_SUCCESS;
   payload: Person[];
 }
 
 interface SearchPersonsErrorAction {
-  type: ActionType.SEARCH_PERSONS_ERROR;
+  type: SearchPersonsActionType.SEARCH_PERSONS_ERROR;
   payload: string;
 }
 
-export type Action =
+export type PersonsAction =
   | SearchPersonsAction
   | SearchPersonsSuccessAction
   | SearchPersonsErrorAction;

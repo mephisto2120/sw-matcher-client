@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {Dispatch} from 'redux';
-import {ActionType} from 'state/action-types';
+import {SearchPersonsActionType} from 'state/action-types';
 import {Person} from 'model/interfaces';
-import {Action} from 'state/actions';
+import {PersonsAction} from 'state/actions';
 
 interface PersonSearchCriteria {
   customerId: number;
@@ -13,9 +13,9 @@ interface PersonSearchCriteria {
 export default PersonSearchCriteria;
 
 export const searchPersons = (personSearchCriteria: PersonSearchCriteria) => {
-  return async (dispatch: Dispatch<Action>) => {
+  return async (dispatch: Dispatch<PersonsAction>) => {
     dispatch({
-      type: ActionType.SEARCH_PERSONS,
+      type: SearchPersonsActionType.SEARCH_PERSONS,
     });
 
     try {
@@ -37,13 +37,13 @@ export const searchPersons = (personSearchCriteria: PersonSearchCriteria) => {
       });
 
       dispatch({
-        type: ActionType.SEARCH_PERSONS_SUCCESS,
+        type: SearchPersonsActionType.SEARCH_PERSONS_SUCCESS,
         payload: persons,
       });
     } catch (err) {
       const errorMessage = err.response && err.response.status && err.response.status === 404 ?  'No person found' : err.message;
       dispatch({
-        type: ActionType.SEARCH_PERSONS_ERROR,
+        type: SearchPersonsActionType.SEARCH_PERSONS_ERROR,
         payload: errorMessage,
       });
     }

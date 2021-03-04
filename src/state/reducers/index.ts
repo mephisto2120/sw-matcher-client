@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
 import personsReducer from "state/reducers/personsReducer";
 
-const reducers = combineReducers({
+const searchPersonsReducers = combineReducers({
   persons: personsReducer,
 });
 
-export default reducers;
+export default searchPersonsReducers;
 
-export type RootState = ReturnType<typeof reducers>;
+export type RootState = ReturnType<typeof searchPersonsReducers>;

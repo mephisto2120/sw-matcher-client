@@ -1,6 +1,6 @@
 import {Person} from "model/interfaces";
-import {ActionType} from "state/action-types";
-import {Action} from "state/actions";
+import {SearchPersonsActionType} from "state/action-types";
+import {PersonsAction} from "state/actions";
 
 export interface PersonsState {
   loading: boolean;
@@ -16,14 +16,14 @@ const initialState = {
 
 const reducer = (
   state: PersonsState = initialState,
-  action: Action
+  action: PersonsAction
 ): PersonsState => {
   switch (action.type) {
-    case ActionType.SEARCH_PERSONS:
+    case SearchPersonsActionType.SEARCH_PERSONS:
       return {loading: true, error: null, data: []};
-    case ActionType.SEARCH_PERSONS_SUCCESS:
+    case SearchPersonsActionType.SEARCH_PERSONS_SUCCESS:
       return {loading: false, error: null, data: action.payload};
-    case ActionType.SEARCH_PERSONS_ERROR:
+    case SearchPersonsActionType.SEARCH_PERSONS_ERROR:
       return {loading: false, error: action.payload, data: []};
     default:
       return state;
