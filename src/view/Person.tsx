@@ -1,5 +1,5 @@
 import React, {FunctionComponent} from 'react';
-import {Person} from "../model/interfaces";
+import {Person} from "model/interfaces";
 
 type PersonProps = {
   persons: Person[]

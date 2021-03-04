@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {useTypedSelector} from '../hooks/useTypedSelector';
-import {useActions} from '../hooks/useActions';
-import {PersonList} from "../view/Person";
-import PersonSearchCriteria from "../state/action-creators";
+import {useTypedSelector} from 'hooks/useTypedSelector';
+import { useActions } from 'hooks/useActions';
+import PersonSearchCriteria from 'state/action-creators';
+import {PersonList} from 'view/Person';
 
 const PersonView: React.FC = () => {
   const [customerId, setCustomerId] = useState('');
@@ -23,16 +23,16 @@ const PersonView: React.FC = () => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <div>
-          <span>Customer id</span><input value={customerId} onChange={(e) => setCustomerId(e.target.value)}/>
+        <div id="customerId">
+          <span>Customer id</span><input id="customerIdInput" value={customerId} onChange={(e) => setCustomerId(e.target.value)}/>
         </div>
-        <div>
-          <span>First name</span><input value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
+        <div id="firstName">
+          <span>First name</span><input id="firstNameInput" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
         </div>
-        <div>
-          <span>Last name</span><input value={lastName} onChange={(e) => setLastName(e.target.value)}/>
+        <div id="lastName">
+          <span>Last name</span><input id="lastNameInput" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
         </div>
-        <button>Search</button>
+        <button id="searchPersons">Search</button>
       </form>
       {error && <h3>{error}</h3>}
       {loading && <h3>Loading...</h3>}

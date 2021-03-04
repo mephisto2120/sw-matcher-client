@@ -1,10 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-import {Provider} from 'react-redux';
-import PersonView from "./components/PersonView";
-import {store} from "./state";
+import Root from 'Root';
+import PersonSearchingView from 'PersonSearchingView';
 
 function App() {
 
@@ -18,14 +16,11 @@ function App() {
   // }, []);
 
   return (
-    <Provider store={store}>
+    <Root>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
-          <div>
-            <h1>Search for persons</h1>
-            <PersonView/>
-          </div>
+          <PersonSearchingView/>
           {/*<div className='repo-container'>*/}
           {/*    <PersonList persons={persons}></PersonList>*/}
           {/*</div>*/}
@@ -46,7 +41,7 @@ function App() {
           </a>
         </header>
       </div>
-    </Provider>
+    </Root>
   );
 }
 
