@@ -14,7 +14,7 @@ const initialState = {
   data: [],
 };
 
-const reducer = (
+const personsReducer = (
   state: PersonsState = initialState,
   action: PersonsAction
 ): PersonsState => {
@@ -30,4 +30,4 @@ const reducer = (
   }
 };
 
-export default reducer;
+export default personsReducer;

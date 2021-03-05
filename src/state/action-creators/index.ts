@@ -15,7 +15,7 @@ export default PersonSearchCriteria;
 export const searchPersons = (personSearchCriteria: PersonSearchCriteria) => {
   return async (dispatch: Dispatch<PersonsAction>) => {
     dispatch({
-      type: SearchPersonsActionType.SEARCH_PERSONS,
+      type: SearchPersonsActionType.SEARCH_PERSONS
     });
 
     try {
@@ -38,13 +38,13 @@ export const searchPersons = (personSearchCriteria: PersonSearchCriteria) => {
 
       dispatch({
         type: SearchPersonsActionType.SEARCH_PERSONS_SUCCESS,
-        payload: persons,
+        payload: persons
       });
     } catch (err) {
       const errorMessage = err.response && err.response.status && err.response.status === 404 ?  'No person found' : err.message;
       dispatch({
         type: SearchPersonsActionType.SEARCH_PERSONS_ERROR,
-        payload: errorMessage,
+        payload: errorMessage
       });
     }
   };

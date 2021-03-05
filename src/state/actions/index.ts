@@ -1,5 +1,5 @@
-import {SearchPersonsActionType} from 'state/action-types';
-import {Person} from 'model/interfaces';
+import {SearchPersonsActionType, SearchCompaniesActionType} from 'state/action-types';
+import {Person, Company} from 'model/interfaces';
 
 interface SearchPersonsAction {
   type: SearchPersonsActionType.SEARCH_PERSONS;
@@ -19,3 +19,22 @@ export type PersonsAction =
   | SearchPersonsAction
   | SearchPersonsSuccessAction
   | SearchPersonsErrorAction;
+
+interface SearchCompaniesAction {
+  type: SearchCompaniesActionType.SEARCH_COMPANIES;
+}
+
+interface SearchCompaniesSuccessAction {
+  type: SearchCompaniesActionType.SEARCH_COMPANIES_SUCCESS;
+  payload: Company[];
+}
+
+interface SearchCompaniesErrorAction {
+  type: SearchCompaniesActionType.SEARCH_COMPANIES_ERROR;
+  payload: string;
+}
+
+export type CompaniesAction =
+  | SearchCompaniesAction
+  | SearchCompaniesSuccessAction
+  | SearchCompaniesErrorAction;

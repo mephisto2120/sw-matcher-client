@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {useTypedSelector} from 'hooks/useTypedSelector';
-import { useActions } from 'hooks/useActions';
+import {usePersonsTypedSelector} from 'hooks/usePersonsTypedSelector';
+import { usePersonActions } from 'hooks/usePersonActions';
 import PersonSearchCriteria from 'state/action-creators';
 import {PersonList} from 'view/Person';
 
@@ -8,8 +8,8 @@ const PersonView: React.FC = () => {
   const [customerId, setCustomerId] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const {searchPersons} = useActions();
-  const {data, error, loading} = useTypedSelector(
+  const {searchPersons} = usePersonActions();
+  const {data, error, loading} = usePersonsTypedSelector(
     (state) => state.persons
   );
 
