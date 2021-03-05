@@ -2,7 +2,7 @@ import moxios from 'moxios';
 import PersonSearchCriteria from 'state/action-creators';
 import {searchPersons} from 'state/action-creators';
 import {Person} from 'model/interfaces';
-import {ActionType} from 'state/action-types';
+import {SearchPersonsActionType} from 'state/action-types';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import {HttpStatus} from 'http/HttpStatus';
@@ -52,9 +52,9 @@ describe('searchPersons actions', () => {
 
     storeMock.dispatch(action).then(() => {
       const expectedActions = [
-        {type: ActionType.SEARCH_PERSONS},
+        {type: SearchPersonsActionType.SEARCH_PERSONS},
         {
-          type: ActionType.SEARCH_PERSONS_SUCCESS,
+          type: SearchPersonsActionType.SEARCH_PERSONS_SUCCESS,
           payload: [foundPerson]
         }
       ]
@@ -78,9 +78,9 @@ describe('searchPersons actions', () => {
 
     storeMock.dispatch(action).then(() => {
       const expectedActions = [
-        {type: ActionType.SEARCH_PERSONS},
+        {type: SearchPersonsActionType.SEARCH_PERSONS},
         {
-          type: ActionType.SEARCH_PERSONS_ERROR,
+          type: SearchPersonsActionType.SEARCH_PERSONS_ERROR,
           payload: 'Request failed with status code 400'
         }
       ]
@@ -104,9 +104,9 @@ describe('searchPersons actions', () => {
 
     storeMock.dispatch(action).then(() => {
       const expectedActions = [
-        {type: ActionType.SEARCH_PERSONS},
+        {type: SearchPersonsActionType.SEARCH_PERSONS},
         {
-          type: ActionType.SEARCH_PERSONS_ERROR,
+          type: SearchPersonsActionType.SEARCH_PERSONS_ERROR,
           payload: 'No person found'        }
       ]
       expect(storeMock.getActions()).toEqual(expectedActions)

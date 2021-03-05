@@ -1,5 +1,5 @@
 import personsReducer, {PersonsState} from 'state/reducers/personsReducer';
-import {ActionType} from 'state/action-types';
+import {SearchPersonsActionType} from 'state/action-types';
 
 const initialState : PersonsState = {
   loading: false,
@@ -9,7 +9,7 @@ const initialState : PersonsState = {
 
 it('handles actions of type SEARCH_PERSONS', () => {
   const action = {
-    type: ActionType.SEARCH_PERSONS
+    type: SearchPersonsActionType.SEARCH_PERSONS
   };
   const expectedStateWhenSearching = {loading: true, error: null, data: []};
 
@@ -20,7 +20,7 @@ it('handles actions of type SEARCH_PERSONS', () => {
 
 it('handles actions of type SEARCH_PERSONS_SUCCESS', () => {
   const action = {
-    type: ActionType.SEARCH_PERSONS_SUCCESS,
+    type: SearchPersonsActionType.SEARCH_PERSONS_SUCCESS,
     payload: []
   };
   const expectedStateWhenSearchingWithSuccess = {loading: false, error: null, data: []};
@@ -34,7 +34,7 @@ it('handles actions of type SEARCH_PERSONS_SUCCESS', () => {
 it('handles actions of type SEARCH_PERSONS_ERROR', () => {
   const networkError = 'Network error';
   const action = {
-    type: ActionType.SEARCH_PERSONS_ERROR,
+    type: SearchPersonsActionType.SEARCH_PERSONS_ERROR,
     payload: networkError
   };
   const expectedStateWhenSearchingFailure = {loading: false, error: networkError, data: []};
