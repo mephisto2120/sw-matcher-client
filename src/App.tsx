@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Root from 'Root';
+import Root from 'PersonRoot';
 import PersonSearchingView from 'PersonSearchingView';
 
 function App() {

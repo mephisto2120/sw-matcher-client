@@ -1,6 +1,6 @@
 import {Person} from "model/interfaces";
-import {SearchPersonsActionType} from "state/action-types";
-import {PersonsAction} from "state/actions";
+import {SearchPersonsActionType} from "state/action-types/person";
+import {PersonsAction} from "state/actions/person";
 
 export interface PersonsState {
   loading: boolean;

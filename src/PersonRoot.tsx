@@ -1,6 +1,6 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {store} from "state";
+import {store} from "state/person";
 
 export default function props(props: any) {
   return (

@@ -1,5 +1,5 @@
-import personsReducer, {PersonsState} from 'state/reducers/personsReducer';
-import {SearchPersonsActionType} from 'state/action-types';
+import personsReducer, {PersonsState} from 'state/reducers/person/personsReducer';
+import {SearchPersonsActionType} from 'state/action-types/person';
 
 const initialState : PersonsState = {
   loading: false,

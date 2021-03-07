@@ -1,25 +1,21 @@
-import moxios from 'moxios';
-import PersonSearchCriteria from 'state/action-creators';
-import {searchPersons} from 'state/action-creators';
+import PersonSearchCriteria, {searchPersons} from 'state/action-creators/person/index';
 import {Person} from 'model/interfaces';
-import {SearchPersonsActionType} from 'state/action-types';
+import {SearchPersonsActionType} from 'state/action-types/person';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 import {HttpStatus} from 'http/HttpStatus';
 
 
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
+const mock = new MockAdapter(axios, {delayResponse: 2000});
 const storeMock = mockStore();
 
 describe('searchPersons actions', () => {
   beforeEach(() => {
     storeMock.clearActions();
-    moxios.install();
-  });
-
-  afterEach(() => {
-    moxios.uninstall();
   });
 
   it('dispatches SEARCH_PERSONS after a successful request', () => {
@@ -43,10 +39,10 @@ describe('searchPersons actions', () => {
       firstName: "John",
       lastName: "Debtor"
     };
-    moxios.stubRequest('http://localhost:8080/person/get?customerId=987&firstName=John&lastName=Debtor', {
-      status: HttpStatus.OK,
-      response: [foundPerson]
-    });
+    mock.onGet('http://localhost:8080/person/get?customerId=987&firstName=John&lastName=Debtor').reply(
+      HttpStatus.OK,
+      {response: [foundPerson]}
+      );
 
     const action = searchPersons(personSearchCriteria);
 
@@ -63,10 +59,10 @@ describe('searchPersons actions', () => {
   });
 
   it('dispatches SEARCH_PERSONS_ERROR after a FAILED API request', () => {
-    moxios.stubRequest('http://localhost:8080/person/get?customerId=888&firstName=Boris&lastName=Spasski', {
-      status: HttpStatus.BAD_REQUEST,
-      response: {error: {message: 'error message'}}
-    });
+    mock.onGet('http://localhost:8080/person/get?customerId=888&firstName=Boris&lastName=Spasski').reply(
+      HttpStatus.BAD_REQUEST,
+      {error: {message: 'error message'}}
+      );
 
     const personSearchCriteria: PersonSearchCriteria = {
       customerId: 888,
@@ -89,10 +85,10 @@ describe('searchPersons actions', () => {
   });
 
   it('dispatches SEARCH_PERSONS_ERROR after response which does not found person', () => {
-    moxios.stubRequest('http://localhost:8080/person/get?customerId=999&firstName=Hikaru&lastName=Nakamura', {
-      status: HttpStatus.NOT_FOUND,
-      response: {error: {message: 'error message'}}
-    });
+    mock.onGet('http://localhost:8080/person/get?customerId=888&firstName=Boris&lastName=Spasski').reply(
+      HttpStatus.NOT_FOUND,
+      {error: {message: 'error message'}}
+      );
 
     const personSearchCriteria: PersonSearchCriteria = {
       customerId: 999,

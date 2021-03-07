@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {useTypedSelector} from 'hooks/useTypedSelector';
-import { useActions } from 'hooks/useActions';
-import PersonSearchCriteria from 'state/action-creators';
+import {useTypedSelector} from 'hooks/person/useTypedSelector';
+import { useActions } from 'hooks/person/useActions';
+import PersonSearchCriteria from 'state/action-creators/person';
 import {PersonList} from 'view/Person';
 
 const PersonView: React.FC = () => {

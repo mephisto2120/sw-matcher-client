@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import PersonView from 'components/PersonView';
+import PersonView from 'components/person/PersonView';
 
 class PersonSearchingView extends Component {
   render() {

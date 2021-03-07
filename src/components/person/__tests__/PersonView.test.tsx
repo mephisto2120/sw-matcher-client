@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'enzyme';
-import PersonView from 'components/PersonView';
-import Root from 'Root';
+import PersonView from 'components/person/PersonView';
+import Root from 'PersonRoot';
 
 it('should contain fields for searching', () => {
   const component = mount(

@@ -1,4 +1,4 @@
-import {SearchPersonsActionType} from 'state/action-types';
+import {SearchPersonsActionType} from 'state/action-types/person';
 import {Person} from 'model/interfaces';
 
 interface SearchPersonsAction {

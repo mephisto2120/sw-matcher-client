@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {Dispatch} from 'redux';
-import {SearchPersonsActionType} from 'state/action-types';
+import {SearchPersonsActionType} from 'state/action-types/person';
 import {Person} from 'model/interfaces';
-import {PersonsAction} from 'state/actions';
+import {PersonsAction} from 'state/actions/person';
 
 interface PersonSearchCriteria {
   customerId: number;

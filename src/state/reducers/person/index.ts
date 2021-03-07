@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import personsReducer from "state/reducers/personsReducer";
+import personsReducer from "state/reducers/person/personsReducer";
 
 const searchPersonsReducers = combineReducers({
   persons: personsReducer,
