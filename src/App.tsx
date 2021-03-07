@@ -1,8 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Root from 'PersonRoot';
+import PersonRoot from 'PersonRoot';
+import CompanyRoot from 'CompanyRoot';
 import PersonSearchingView from 'PersonSearchingView';
+import CompanySearchingView from 'CompanySearchingView';
 
 function App() {
 
@@ -16,7 +18,7 @@ function App() {
   // }, []);
 
   return (
-    <Root>
+    <PersonRoot>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
@@ -41,7 +43,7 @@ function App() {
           </a>
         </header>
       </div>
-    </Root>
+    </PersonRoot>
   );
 }
 

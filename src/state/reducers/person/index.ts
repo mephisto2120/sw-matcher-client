@@ -7,4 +7,4 @@ const searchPersonsReducers = combineReducers({
 
 export default searchPersonsReducers;
 
-export type RootState = ReturnType<typeof searchPersonsReducers>;
+export type RootPersonState = ReturnType<typeof searchPersonsReducers>;
