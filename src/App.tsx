@@ -5,6 +5,9 @@ import PersonRoot from 'PersonRoot';
 import CompanyRoot from 'CompanyRoot';
 import PersonSearchingView from 'PersonSearchingView';
 import CompanySearchingView from 'CompanySearchingView';
+import PersonDashboard from 'components/person/PersonDashboard';
+// import { BrowserRouter, Route } from 'react-router-dom';
+import CompanyDashboard from 'components/company/CompanyDashboard';
 
 function App() {
 
@@ -18,32 +21,17 @@ function App() {
   // }, []);
 
   return (
-    <PersonRoot>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-          <PersonSearchingView/>
-          {/*<div className='repo-container'>*/}
-          {/*    <PersonList persons={persons}></PersonList>*/}
-          {/*</div>*/}
-
-          {/*<p>*/}
-          {/*    {persons.map(item => item.firstName + ' ' + item.lastName)}*/}
-          {/*</p>*/}
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    </PersonRoot>
+    // <BrowserRouter>
+    //   <App>
+    //     <Route path="/" exact component={PersonDashboard} />
+    //     <Route path="/signup" component={CompanyDashboard} />
+    //   </App>
+    // </BrowserRouter>
+    // <PersonDashboard/>
+    <div>
+      <h4>Searching</h4>
+      <CompanyDashboard/>
+    </div>
   );
 }
 
