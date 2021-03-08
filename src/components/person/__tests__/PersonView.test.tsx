@@ -1,13 +1,14 @@
 import React from 'react';
 import {mount} from 'enzyme';
 import PersonView from 'components/person/PersonView';
-import Root from 'PersonRoot';
+import PersonRoot from 'PersonRoot';
+
 
 it('should contain fields for searching', () => {
   const component = mount(
-    <Root>
+    <PersonRoot>
       <PersonView/>
-    </Root>
+    </PersonRoot>
   );
 
   const customerIdDivText = component.find({id: "customerId"}).text();

@@ -26,7 +26,7 @@ const CompanyView: React.FC = () => {
           <span>Customer id</span><input id="customerIdInput" value={customerId} onChange={(e) => setCustomerId(e.target.value)}/>
         </div>
         <div id="companyName">
-          <span>First name</span><input id="firstNameInput" value={name} onChange={(e) => setName(e.target.value)}/>
+          <span>Company name</span><input id="firstNameInput" value={name} onChange={(e) => setName(e.target.value)}/>
         </div>
         <button id="searchCompanies">Search</button>
       </form>
