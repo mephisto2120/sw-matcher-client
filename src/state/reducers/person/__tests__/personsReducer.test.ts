@@ -24,7 +24,7 @@ it('handles actions of type SEARCH_PERSONS_SUCCESS', () => {
     payload: []
   };
   const expectedStateWhenSearchingWithSuccess = {loading: false, error: null, data: []};
-  
+
   const newState = personsReducer(initialState, action);
 
   expect(newState).toEqual(expectedStateWhenSearchingWithSuccess);
