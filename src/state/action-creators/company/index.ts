@@ -3,6 +3,7 @@ import {Dispatch} from 'redux';
 import {SearchCompaniesActionType} from 'state/action-types/company';
 import {Company} from 'model/interfaces';
 import {CompaniesAction} from 'state/actions/company';
+import CompanyRequestBuilder from 'state/action-creators/company/CompanyRequestBuilder';
 
 interface CompanySearchCriteria {
   customerId: number;
@@ -18,14 +19,16 @@ export const searchCompanies = (companySearchCriteria: CompanySearchCriteria) =>
     });
 
     try {
-      const {data} = await axios.get(
-        'http://localhost:8080/company/get',
-        {
-          params: {
-            customerId: companySearchCriteria.customerId,
-            name: companySearchCriteria.name
-          },
-        }
+      const companyRequestBuilder: CompanyRequestBuilder = new CompanyRequestBuilder(companySearchCriteria);
+      console.log('requestedUrl' + companyRequestBuilder.build())
+      const {data} = await axios.get(companyRequestBuilder.build()
+        // 'http://localhost:8080/company/get',
+        // {
+        //   params: {
+        //     customerId: companySearchCriteria.customerId,
+        //     name: companySearchCriteria.name
+        //   },
+        // }
       );
 
       const companies: Company[] = data.map((company: Company) => {
