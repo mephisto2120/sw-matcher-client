@@ -12,3 +12,16 @@ export interface Person {
   createdDate: string;
   lastModified: string;
 }
+
+export interface Company {
+  companyId: number;
+  customerId: number;
+  name: string;
+  city: string;
+  zipCode: string;
+  street: string;
+  localNumber: string;
+  email: string;
+  createdDate: string;
+  lastModified: string;
+}
